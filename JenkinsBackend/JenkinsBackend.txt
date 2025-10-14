@@ -1,0 +1,4 @@
+del /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\backendfinalname.war"
+rmdir /S /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\backendfinalname"
+cd target
+copy *.war "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\"

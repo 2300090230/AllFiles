@@ -1,0 +1,5 @@
+call npm install
+call npm run build
+rmdir /S /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\basename"
+mkdir "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\basename"
+xcopy /E /I /Y dist\* "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\basename"
