@@ -1,0 +1,4 @@
+docker login
+docker ps 
+docker build -t <image name> .
+docker run -d  -p  hostportno:exposeportno <imagename>
