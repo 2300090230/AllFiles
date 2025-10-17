@@ -1,0 +1,11 @@
+Basically give permissions 
+->go to settings
+->Actions 
+->General 
+->go to last give read and write permissions
+->save it 
+
+=>Go to settings
+->pages 
+->change branch main to gh-pages and save 
+->refresh the browser u will get deployment
