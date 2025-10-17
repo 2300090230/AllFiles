@@ -1,0 +1,9 @@
+1.Clone the project make sure update these files and add the dockerfiles (frontend/backend) and docker-compose.yml
+push the code into github 
+2.do all these changes and push the code and create repository secrets of dockerhub username and personal acccess token
+3.build the code and build the images
+4. after all these type the command that 
+in vs code run after success
+open the docker desktop 
+
+docker-compose up -d 
