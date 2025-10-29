@@ -1,0 +1,58 @@
+services:
+  mysqldb:
+    container_name: mysql-db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: art
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - springboot-react-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  backend:
+    container_name: backendcontainername
+    build:
+      context: ./BackendProjectName
+      dockerfile: ./Dockerfile
+    image: backendimagename:latest
+    ports:
+      #host:container portnumber
+      - "2001:2000"
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    restart: on-failure
+    networks:
+      - springboot-react-network
+
+  frontend:
+    container_name: frontendcontainername
+    build:
+      context: ./FrontendProjectName
+      dockerfile: ./Dockerfile
+    image: frontendimagename:latest
+    ports:
+    #host:container portnumber
+      - "3001:80"
+    depends_on:
+      - backend
+    networks:
+      - springboot-react-network
+
+# Declare volumes for persistence
+volumes:
+  mysql-data:
+
+# Define custom bridge network
+networks:
+  springboot-react-network:
+    driver: bridge
